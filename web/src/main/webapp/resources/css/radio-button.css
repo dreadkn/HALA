@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+/* Customize the label (the radio-button-wrap) */
+.radio-button-wrap {
+  display: inline-block;
+  position: relative;  
+  cursor: pointer;  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio-button */
+.radio-button-wrap input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio-button */
+.radio-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 15px !important;
+  width: 15px !important;
+  transform: translate(-50%,-50%);
+  background-color: transparent;
+  border: 1px solid #8c8c8c;
+  border-radius: 30px;
+  padding: 0.6rem;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-button-wrap:hover input ~ .radio-button:AFTER {
+  display: block;
+}
+
+/* When the radio-button is checked, add a blue background */
+.radio-button-wrap input:checked ~ .radio-button {  
+}
+
+/* Create the radio-button/indicator (hidden when not checked) */
+.radio-button:after {
+  content: "";
+  position: absolute;
+  display: none;
+  padding: 0.4rem;
+}
+
+/* Show the radio-button when checked */
+.radio-button-wrap input:checked ~ .radio-button:after {
+  display: block;
+  content: "";
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 1.2rem;
+  background: #6579ef;
+  border-radius: 30px;
+}
+.radio-button-wrap input:checked ~ .radio-button {
+  border: 1px solid #6579ef;
+}
+
+
+

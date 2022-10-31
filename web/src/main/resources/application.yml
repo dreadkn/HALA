@@ -1,0 +1,72 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+    servlet:
+      path: /
+
+  datasource:
+    url: jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    initialization-mode: never
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+        use_sql_comments: false
+  #        dialect: org.hibernate.dialect.H2Dialect
+
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 110MB
+
+
+  thymeleaf:
+    enabled: false
+    cache: false
+    prefix: 'classpath:/templates/email/'
+
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+  task:
+    execution:
+      pool:
+        max-size: 8
+  profiles:
+    active: release
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: false
+
+logging:
+  level:
+    root: info
+    com.inpply: debug
+    org.springframework: info
+#    org.hibernate.SQL: debug
+#    org.hibernate.type: trace
+
+

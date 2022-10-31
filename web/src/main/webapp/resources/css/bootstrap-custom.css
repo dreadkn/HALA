@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+html {
+    font-size: 14px;
+}
+
+.badge.badge-md {
+    font-size: 100% !important;
+}
+
+.badge-white {
+    color: #212529;
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.word-keep-all {
+    word-break: keep-all !important;
+}
+
+/* input-group-prepend 셀렉트박스 border-radius 수정  */
+select[name='searchType'].custom-select {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.modal-backdrop.show.modal-light {
+    opacity: .2 !important;
+}

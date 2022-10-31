@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!--Admin-->
+    <definition name="pro-layout" template="/WEB-INF/view/tiles/admin/admin-layout.jsp">
+        <put-attribute name="head" value="/WEB-INF/view/tiles/admin/head.jsp"/>
+        <put-attribute name="navbar" value="/WEB-INF/view/tiles/admin/nav.jsp"/>
+        <put-attribute name="main-sidebar" value="/WEB-INF/view/tiles/admin/main-sidebar.jsp"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="control-sidebar" value="/WEB-INF/view/tiles/admin/control-sidebar.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/tiles/admin/footer.jsp"/>
+    </definition>
+
+    <!--Admin Login-->
+    <definition name="login-layout" template="/WEB-INF/view/tiles/admin/login-layout.jsp">
+        <put-attribute name="head" value="/WEB-INF/view/tiles/admin/head.jsp"/>
+        <put-attribute name="content" value=""/>
+    </definition>
+
+    <!--user-->
+    <definition name="user-layout" template="/WEB-INF/view/tiles/user/user-layout.jsp">
+        <put-attribute name="head" value="/WEB-INF/view/tiles/user/head.jsp"/>
+        <put-attribute name="navbar" value="/WEB-INF/view/tiles/user/navbar.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/tiles/user/footer.jsp"/>
+        <put-attribute name="content" value=""/>
+    </definition>
+
+    <!--user main-->
+    <definition name="main-layout" template="/WEB-INF/view/tiles/user/main-layout.jsp">
+        <put-attribute name="head" value="/WEB-INF/view/tiles/user/head.jsp"/>
+        <put-attribute name="navbar" value="/WEB-INF/view/tiles/user/navbar.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/tiles/user/footer.jsp"/>
+        <put-attribute name="content" value=""/>
+    </definition>
+
+    <!--viewer main-->
+    <definition name="viewer-layout" template="/WEB-INF/view/tiles/viewer/viewer-layout.jsp">
+        <put-attribute name="content" value=""/>
+    </definition>
+
+    <definition name="admin/login/*" extends="login-layout">
+        <put-attribute name="content" value="/WEB-INF/view/admin/login/{1}.jsp"/>
+    </definition>
+
+    <definition name="admin/*" extends="pro-layout">
+        <put-attribute name="content" value="/WEB-INF/view/admin/{1}.jsp"/>
+    </definition>
+    <definition name="admin/*/*" extends="pro-layout">
+        <put-attribute name="content" value="/WEB-INF/view/admin/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="admin/*/*/*" extends="pro-layout">
+        <put-attribute name="content" value="/WEB-INF/view/admin/{1}/{2}/{3}.jsp"/>
+    </definition>
+
+    <definition name="viewer/*" extends="viewer-layout">
+        <put-attribute name="content" value="/WEB-INF/view/viewer/{1}.jsp"/>
+    </definition>
+    <definition name="viewer/*/*" extends="viewer-layout">
+        <put-attribute name="content" value="/WEB-INF/view/viewer/{1}.jsp"/>
+    </definition>
+
+
+    <!--empty-->
+    <definition name="empty" template="/WEB-INF/view/tiles/empty.jsp">
+        <put-attribute name="head" value="/WEB-INF/view/tiles/user/head.jsp"/>
+        <put-attribute name="content" value=""/>
+    </definition>
+
+    <definition name="*/piece/*" extends="empty">
+        <put-attribute name="content" value="/WEB-INF/view/{1}/piece/{2}.jsp"/>
+    </definition>
+
+
+    <definition name="*" extends="user-layout">
+        <put-attribute name="content" value="/WEB-INF/view/{1}.jsp"/>
+    </definition>
+    <definition name="*/*" extends="user-layout">
+        <put-attribute name="content" value="/WEB-INF/view/{1}/{2}.jsp"/>
+    </definition>
+    <definition name="*/*/*" extends="user-layout">
+        <put-attribute name="content" value="/WEB-INF/view/{1}/{2}/{3}.jsp"/>
+    </definition>
+
+    <definition name="*/*/*/*" extends="user-layout">
+        <put-attribute name="content" value="/WEB-INF/view/{1}/{2}/{3}/{4}.jsp"/>
+    </definition>
+
+    <definition name="user/index" extends="main-layout">
+        <put-attribute name="content" value="/WEB-INF/view/user/index.jsp"/>
+    </definition>
+
+
+
+
+</tiles-definitions>

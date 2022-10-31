@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/* 카카오맵 */
+.screen {
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(66, 66, 66, 0.45);
+    z-index: -10;
+    transition: all .3s;
+}
+
+.screen.on {
+    z-index: 100;
+    opacity: 1;
+}
+
+/* 로딩바 */
+#loading-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+#loading-container .title {
+    position: absolute;
+    padding: 0 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #545454;
+    /*background-color: #FFFFFF;*/
+    border-radius: 30px;
+}
+
+#loading-container .animation {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+@keyframes loading {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+#loading-container .loading {
+    width: 140px;
+    height: 140px;
+    border-top: 3px solid #545454;
+    border-bottom: 3px solid #545454;
+    border-right: 3px solid rgba(0, 0, 0, .0);
+    border-left: 3px solid rgba(0, 0, 0, .0);
+    animation: loading 1s linear infinite;
+    border-radius: 100%;
+}

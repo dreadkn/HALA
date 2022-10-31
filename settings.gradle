@@ -1,0 +1,5 @@
+rootProject.name = '22A_HALA_PUBLIC'
+include 'common'
+include 'web'
+
+
